@@ -1,0 +1,58 @@
+{
+  "name": "turbo-debug",
+  "version": "0.1.0",
+  "description": "Visualize and debug what Hotwire Turbo is doing - frame outlines, events, and more in a drop-in script.",
+  "keywords": [
+    "turbo",
+    "hotwire",
+    "turbo-frame",
+    "turbo-stream",
+    "debug",
+    "devtools",
+    "visualizer"
+  ],
+  "files": [
+    "dist/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/rvanhoepen/turbo-debug#readme",
+  "bugs": {
+    "url": "https://github.com/rvanhoepen/turbo-debug/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvanhoepen/turbo-debug.git"
+  },
+  "license": "MIT",
+  "author": "Ricardo van Hoepen",
+  "type": "module",
+  "main": "dist/turbo-debug.js",
+  "module": "dist/turbo-debug.js",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write 'src/**/*.js' 'test/**/*.js'"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/turbo-debug.js",
+      "require": "./dist/turbo-debug.js"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "babel-jest": "^30.2.0",
+    "esbuild": "^0.25.11",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "jsdom": "^27.0.1",
+    "prettier": "^3.6.2"
+  }
+}
