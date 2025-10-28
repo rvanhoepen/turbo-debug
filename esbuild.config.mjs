@@ -13,11 +13,27 @@ const common = {
 };
 
 // build unminified
-await build({
-  ...common,
-  minify: false,
-  watch,
-});
+if (watch) {
+
+  await build({
+    ...common,
+    minify: false,
+    watch: {
+      onRebuild(error, _result) {
+        if (error) {
+          console.error('Watch build failed:', error);
+        } else {
+          console.log('Watch build succeeded');
+        }
+      },
+    }
+  });
+} else {
+  await build({
+    ...common,
+    minify: false,
+  });
+}
 
 // build minified
 await build({
