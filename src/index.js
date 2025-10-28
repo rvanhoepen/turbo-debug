@@ -19,6 +19,6 @@ export function enableTurboDebug() {
 
   document.addEventListener('turbo:frame-load', highlightVisibleTurboFrames);
 
-  // const observer = new MutationObserver(highlightVisibleTurboFrames);
-  // observer.observe(document.body, { attributes: true, childList: true, subtree: true });
+  const observer = new MutationObserver(highlightVisibleTurboFrames);
+  observer.observe(document.body, { attributes: true, childList: true, subtree: true });
 }
