@@ -5,12 +5,19 @@ import { enableTurboDebug } from '../src/index.js';
 
 describe('Turbo Debug', () => {
   beforeEach(() => {
+    document.head.innerHTML = '';
     document.body.innerHTML = '';
   });
 
   test('adds debug class to body', () => {
     enableTurboDebug();
     expect(document.body.classList.contains('turbodebug')).toBe(true);
+  });
+
+  test('injects style tag into head', () => {
+    expect(document.getElementById('turbodebug-styles')).toBeNull();
+    enableTurboDebug();
+    expect(document.getElementById('turbodebug-styles')).not.toBeNull();
   });
 
   test('marks visible turbo-frame elements', () => {

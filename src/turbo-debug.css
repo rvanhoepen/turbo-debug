@@ -1,0 +1,17 @@
+body.debug {
+  turbo-frame.turbodebug {
+    border: 1px dashed red;
+    position: relative;
+
+    &::before {
+      content: "Frame #" attr(id) " " attr(src);
+      font-size: 0.75rem;
+      color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0 2px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ const common = {
   format: 'esm',
   target: ['es2018'],
   outfile: 'dist/turbo-debug.js',
+  loader: { '.css': 'text' },
 };
 
 // build unminified

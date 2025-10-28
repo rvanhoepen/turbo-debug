@@ -1,3 +1,5 @@
+import css from './turbo-debug.css';
+
 function highlightVisibleTurboFrames() {
   // remove the class so we can run this at any time during the lifecycle
   document
@@ -13,6 +15,13 @@ function highlightVisibleTurboFrames() {
 }
 
 export function enableTurboDebug() {
+  if (!document.getElementById('turbodebug-styles')) {
+    const style = document.createElement('style');
+    style.id = 'turbodebug-styles'
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
   document.body.classList.add('turbodebug');
 
   highlightVisibleTurboFrames();
