@@ -67,8 +67,10 @@ describe('Turbo Debug', () => {
     const event = new Event('turbo:frame-load', { bubbles: true, cancelable: true });
     newFrame.dispatchEvent(event);
 
-    // the MutationObserver and event listener should mark the visible frames
-    expect(frame.classList.contains('turbodebug')).toBe(true);
-    expect(newFrame.classList.contains('turbodebug')).toBe(true);
+    // wait for the throttled requestAnimationFrame to run
+    return new Promise(requestAnimationFrame).then(() => {
+      expect(frame.classList.contains('turbodebug')).toBe(true);
+      expect(newFrame.classList.contains('turbodebug')).toBe(true);
+    });
   });
 });

@@ -4,9 +4,9 @@ const args = process.argv.slice(2);
 const watch = args.includes('--watch');
 
 const variants = [
-  { entry: 'src/turbo-debug.js', outfile: 'dist/turbo-debug.js', },
-  { entry: 'src/turbo-debug-auto.js', outfile: 'dist/turbo-debug-auto.js', },
-]
+  { entry: 'src/turbo-debug.js', outfile: 'dist/turbo-debug.js' },
+  { entry: 'src/turbo-debug-auto.js', outfile: 'dist/turbo-debug-auto.js' },
+];
 
 const common = {
   bundle: true,
@@ -19,7 +19,6 @@ const common = {
 for (const { entry, outfile } of variants) {
   // build unminified
   if (watch) {
-
     await build({
       ...common,
       entryPoints: [entry],
@@ -33,7 +32,7 @@ for (const { entry, outfile } of variants) {
             console.log('Watch build succeeded');
           }
         },
-      }
+      },
     });
   } else {
     await build({

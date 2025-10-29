@@ -34,7 +34,7 @@ describe('Turbo Debug Auto', () => {
 
     loadAutoModule();
 
-    expect(addEventSpy).toHaveBeenCalledWith('DOMContentLoaded', expect.any(Function))
+    expect(addEventSpy).toHaveBeenCalledWith('DOMContentLoaded', expect.any(Function));
 
     const listener = addEventSpy.mock.calls.find(([event]) => event === 'DOMContentLoaded')[1];
 

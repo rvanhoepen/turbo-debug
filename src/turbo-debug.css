@@ -1,8 +1,7 @@
-body.debug {
+body.turbodebug {
   turbo-frame.turbodebug {
     border: 1px dashed red;
     display: block;
-    position: relative;
 
     &::before {
       content: "Frame #" attr(id) " " attr(src);
