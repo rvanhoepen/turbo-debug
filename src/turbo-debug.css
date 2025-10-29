@@ -1,17 +1,21 @@
 body.debug {
   turbo-frame.turbodebug {
     border: 1px dashed red;
+    display: block;
     position: relative;
 
     &::before {
       content: "Frame #" attr(id) " " attr(src);
+      position: absolute;
       font-size: 0.75rem;
       color: red;
-      position: absolute;
-      top: 0;
-      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      top: 0.25rem;
+      left: 0.25rem;
       background: rgba(255, 255, 255, 0.7);
       padding: 0 2px;
+      white-space: nowrap;
     }
   }
 }

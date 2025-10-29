@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { enableTurboDebug } from '../src/index.js';
+import { enableTurboDebug } from '../src/turbo-debug.js';
 
 describe('Turbo Debug', () => {
   beforeEach(() => {

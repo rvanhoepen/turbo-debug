@@ -1,15 +1,36 @@
 import css from './turbo-debug.css';
 
+function markFrame(frame) {
+  frame.classList.add('turbodebug');
+
+  // only set the position to relative if it's static
+  const computed = window.getComputedStyle(frame);
+  if (computed.position === 'static') {
+    frame.dataset.turbodebugPosition = 'relative';
+    frame.style.position = 'relative'
+  }
+}
+
+function unmarkFrame(frame) {
+  // unset the position so the layout can go back to normal
+  if (frame.dataset.turbodebugPosition === 'relative') {
+    frame.style.position = '';
+    delete frame.dataset.turbodebugPosition;
+  }
+
+  frame.classList.remove('turbodebug');
+}
+
 function highlightVisibleTurboFrames() {
   // remove the class so we can run this at any time during the lifecycle
-  document
-    .querySelectorAll('turbo-frame.turbodebug')
-    .forEach((frame) => frame.classList.remove('turbodebug'));
+  document.querySelectorAll('turbo-frame.turbodebug').forEach((frame) => {
+    unmarkFrame(frame);
+  });
 
   document.querySelectorAll('turbo-frame').forEach((frame) => {
     if (frame.offsetParent !== null) {
       // the frame is visible. offsetParent is null if it is hidden.
-      frame.classList.add('turbodebug');
+      markFrame(frame);
     }
   });
 }

@@ -40,6 +40,10 @@
     ".": {
       "import": "./dist/turbo-debug.js",
       "require": "./dist/turbo-debug.js"
+    },
+    "./auto": {
+      "import": "./dist/turbo-debug-auto.js",
+      "require": "./dist/turbo-debug-auto.js"
     }
   },
   "devDependencies": {
